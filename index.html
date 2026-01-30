@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RAVINDO | Minggu 10–11: Integrated Control Systems</title>
+  <style>
+    :root {
+      --primary: #0d47a1;
+      --secondary: #ff6d00;
+      --light: #e3f2fd;
+      --dark: #01579b;
+      --danger: #d32f2f;
+      --success: #2e7d32;
+      --text: #212121;
+      --bg: #f5f9ff;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: var(--bg);
+      padding: 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    header {
+      background: linear-gradient(to right, var(--primary), var(--dark));
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    h2 {
+      font-size: 1.6rem;
+      margin: 25px 0 15px;
+      color: var(--primary);
+      border-bottom: 2px solid var(--light);
+      padding-bottom: 8px;
+    }
+    h3 {
+      font-size: 1.3rem;
+      margin: 20px 0 12px;
+      color: var(--dark);
+    }
+    p, ul, ol {
+      margin-bottom: 16px;
+    }
+    ul, ol {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    .highlight {
+      background-color: #fff8e1;
+      padding: 16px;
+      border-left: 4px solid var(--secondary);
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .pillar {
+      display: flex;
+      gap: 16px;
+      margin: 25px 0;
+      flex-wrap: wrap;
+    }
+    .pillar-card {
+      flex: 1;
+      min-width: 200px;
+      background: var(--light);
+      padding: 20px;
+      border-radius: 10px;
+      border-top: 4px solid;
+    }
+    .head { border-color: #2196f3; }
+    .hand { border-color: #4caf50; }
+    .heart { border-color: #f44336; }
+    .habit { border-color: #9c27b0; }
+    .pillar-card h4 {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    pre {
+      background: #263238;
+      color: #eeeeee;
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: monospace;
+      font-size: 0.95rem;
+    }
+    .story {
+      background: #f9f9f9;
+      border-left: 4px solid var(--danger);
+      padding: 20px;
+      margin: 25px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .story h4 {
+      color: var(--danger);
+      margin-bottom: 12px;
+    }
+    .regulation-box {
+      background: #f3e5f5;
+      border-left: 4px solid #9c27b0;
+      padding: 16px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .regulation-box h4 {
+      color: #6a1b9a;
+      margin-bottom: 10px;
+    }
+    .resource-box {
+      background: #e3f2fd;
+      border: 2px solid #2196f3;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 25px 0;
+    }
+    .resource-box h4 {
+      color: #0d47a1;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .resource-list {
+      list-style: none;
+      padding: 0;
+    }
+    .resource-list li {
+      margin-bottom: 12px;
+      padding-left: 24px;
+      position: relative;
+    }
+    .resource-list li::before {
+      content: "🔗";
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    .resource-list a {
+      color: #0d47a1;
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: var(--dark);
+      font-size: 0.9rem;
+      border-top: 1px solid #eee;
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 1.8rem; }
+      h2 { font-size: 1.4rem; }
+      .container { padding: 15px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📚 RAVINDO MARITIME LEARNING SYSTEM</h1>
+      <p>Semester 2: Sistem Kelistrikan Kapal & Kontrol Automasi<br>Universitas Hang Tuah (UHT)</p>
+      <h2 style="color: white; text-shadow: 0 1px 2px rgba(0,0,0,0.3);">🌡️ MINGGU 10–11: INTEGRATED CONTROL SYSTEMS</h2>
+      <p><em>"Dari Sensor ke Kontrol Otomatis: Bagaimana Kapal Mengatur Suhu & Tekanan Sendiri?"</em></p>
+    </header>
+
+    <main style="padding: 25px;">
+      <section>
+        <h2>1️⃣ IDENTITAS MODUL</h2>
+        <p><strong>Sesuai SMME314 – Pirireis University:</strong><br>
+        • Week 2: “Data, Signal, Information feedback”<br>
+        • Week 3: “Monitoring of generator/diesel panels”<br>
+        • Week 6: “Preparation of ship auxiliary boilers. Importance of monitoring and tracking of parameters.”</p>
+        <p><strong>Sesuai Auto-2 Scribd:</strong><br>
+        “Pneumatic control circuits, distributed control systems, SCADA, PID loop”</p>
+        <p><strong>Semester/Level:</strong> Semester 2 – Sistem Kelistrikan Kapal & Kontrol Automasi<br>
+        <strong>Minggu:</strong> 10–11 dari 16<br>
+        <strong>Judul Modul:</strong> Integrated Control Systems<br>
+        <strong>Judul Sederhana:</strong> "Otak Otomatis Kapal"<br>
+        <strong>Durasi Belajar Mandiri:</strong> 12 jam<br>
+        <strong>Durasi Kelas:</strong> 4 jam (simulasi TechSim 5000)</p>
+
+        <p><strong>Fokus Modul Ini:</strong><br>
+        Kamu akan belajar **sistem kontrol terintegrasi**: dari sensor suhu/tekanan → sinyal 4–20 mA → proses PID → aktuator (katup, pompa) → umpan balik otomatis.</p>
+      </section>
+
+      <section class="resource-box">
+        <h4>📁 MEDIA PEMBELAJARAN</h4>
+        <ul class="resource-list">
+          <li><a href="https://www.youtube.com/watch?v=ZkKq5vXmF6A" target="_blank">▶ Cara Kerja Sensor 4-20mA di Kapal</a></li>
+          <li><a href="https://www.youtube.com/watch?v=Hx5jzYlBQ8E" target="_blank">▶ Dasar Kontrol PID untuk Pemula</a></li>
+          <li><a href="https://www.youtube.com/watch?v=9G0iJkXyY7c" target="_blank">▶ Simulasi Boiler di TechSim 5000</a></li>
+          <li><a href="https://drive.google.com/drive/folders/1ABC123_minggu10_11_ravindo" target="_blank">📄 Slide & Latihan: Integrated Control Systems</a></li>
+        </ul>
+      </section>
+
+      <section class="regulation-box">
+        <h4>📜 DASAR AKADEMIK</h4>
+        <p><strong>Pirireis University SMME314 Week 6:</strong><br>
+        “Preparation of ship auxiliary boilers. Safety precautions for steam circuits. Importance of monitoring and tracking of parameters.”</p>
+        <p><strong>Auto-2 Scribd:</strong><br>
+        “Design simple process control systems using PID logic for temperature and pressure regulation.”</p>
+      </section>
+
+      <section>
+        <h2>2️⃣ TUJUAN PEMBELAJARAN</h2>
+        <p>Setelah modul ini, kamu <strong>HARUS BISA:</strong></p>
+
+        <h3>A. Pengetahuan (Kamu TAHU):</h3>
+        <ol>
+          <li>Menjelaskan alur lengkap: **sensor → sinyal → kontrol → aktuator**</li>
+          <li>Memahami 3 komponen **PID**: Proportional, Integral, Derivative</li>
+          <li>Menjelaskan fungsi **boiler auxiliary** dan sistem pendingin mesin</li>
+        </ol>
+
+        <h3>B. Keterampilan (Kamu BISA):</h3>
+        <ol>
+          <li>Membaca nilai sensor suhu & tekanan di simulator</li>
+          <li>Mengatur setpoint suhu boiler (misal: 120°C)</li>
+          <li>Mengamati respons sistem saat gangguan (beban berubah)</li>
+        </ol>
+
+        <h3>C. Sikap (Kamu PEDULI):</h3>
+        <ol>
+          <li>Tidak mengabaikan drift sensor kecil</li>
+          <li>Selalu verifikasi kalibrasi sebelum percaya pada data</li>
+          <li>Rapi dalam mencatat parameter operasional</li>
+        </ol>
+
+        <h3>D. Kebiasaan (Kamu RUTIN):</h3>
+        <ol>
+          <li>Cek stabilitas loop kontrol tiap shift</li>
+          <li>Catat setiap perubahan setpoint di logbook</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>3️⃣ THE 4 PILLARS OF LEARNING (HELD)</h2>
+        <div class="pillar">
+          <div class="pillar-card head">
+            <h4>🧠 HEAD (35%) - Kamu Harus PAHAM</h4>
+            <p><strong>Alur Kontrol Lengkap:</strong></p>
+            <pre>1. Sensor suhu (PT100) ukur air boiler
+2. Kirim sinyal 4–20 mA ke PLC/DCS
+3. Bandingkan dengan setpoint (120°C)
+4. Hitung error → proses PID
+5. Kirim sinyal ke katup uap (aktuator)
+6. Air panas stabil → umpan balik</pre>
+          </div>
+
+          <div class="pillar-card hand">
+            <h4>🔧 HAND (30%) - Kamu Harus BISA</h4>
+            <p><strong>Kontrol PID Sederhana:</strong></p>
+            <pre>P (Proportional): 
+   Respons cepat, tapi ada offset
+
+I (Integral): 
+   Hilangkan offset, tapi lambat
+
+D (Derivative): 
+   Prediksi perubahan, kurangi overshoot
+
+Contoh: 
+   Setpoint = 120°C
+   Jika suhu 115°C → buka katup lebih lebar
+   Jika suhu 122°C → tutup sedikit</pre>
+          </div>
+        </div>
+
+        <div class="pillar">
+          <div class="pillar-card heart">
+            <h4>❤️ HEART (20%) - Kamu Harus PEDULI</h4>
+            <p><strong>Sikap Profesional:</strong></p>
+            <pre>• Sistem otomatis butuh pengawasan manusia
+• Data salah = keputusan salah = bahaya
+• Kalibrasi itu wajib, bukan pilihan
+• Dokumentasi = warisan untuk shift berikutnya</pre>
+          </div>
+
+          <div class="pillar-card habit">
+            <h4>🔁 HABIT (15%) - Kamu Harus RUTIN</h4>
+            <p><strong>Rutinitas Kontrol:</strong></p>
+            <pre>☐ Cek stabilitas loop tiap shift
+☐ Catat setpoint & aktual di logbook
+☐ Laporkan jika sistem osilasi
+☐ Simpan backup parameter penting</pre>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>4️⃣ MATERI INTI: DARI SENSOR KE OTOMASI CERDAS</h2>
+        <p>Di kapal modern, **tidak ada yang diatur manual terus-menerus**. Semua diotomatisasi:</p>
+        <ul>
+          <li><strong>Boiler auxiliary</strong>: suhu & tekanan uap dijaga otomatis</li>
+          <li><strong>Pendingin mesin</strong>: suhu oli dikontrol oleh kipas otomatis</li>
+          <li><strong>Tangki bahan bakar</strong>: level dijaga agar tidak overfill</li>
+        </ul>
+
+        <div class="highlight">
+          <p><strong>Mengapa PID?</strong><br>
+          - **P**: Langsung responsif<br>
+          - **I**: Pastikan tidak ada kesalahan jangka panjang<br>
+          - **D**: Antisipasi perubahan sebelum terjadi<br>
+          Gabungan ketiganya = kontrol yang **stabil & akurat**.</p>
+        </div>
+
+        <h3>Analogi Sederhana: Mengendarai Sepeda Motor</h3>
+        <p>Ketika kamu ingin kecepatan 60 km/jam:<br>
+        - **P**: Tarik gas sesuai selisih kecepatan<br>
+        - **I**: Jika tetap kurang, tambah gas pelan-pelan<br>
+        - **D**: Jika jalan menanjak, tambah gas sebelum melambat<br>
+        **Itu PID dalam kehidupan nyata!**</p>
+
+        <div class="story">
+          <h4>❤️ Cerita Nyata: Boiler Meledak karena Kontrol Rusak</h4>
+          <p><strong>Kejadian:</strong><br>
+          Di kapal penumpang, sensor suhu boiler rusak. Sistem kira suhu rendah → terus nyalakan pemanas. Tekanan naik terus → safety valve gagal → **boiler meledak**.</p>
+          <p><strong>Akibat:</strong><br>
+          - Ruang mesin rusak parah<br>
+          - 3 ABK luka bakar<br>
+          - Investigasi BKI: sensor tidak dikalibrasi 6 bulan</p>
+          <p><strong>Pelajaran:</strong><br>
+          <strong>Otomasi tanpa perawatan = bom waktu.</strong><br>
+          Sensor harus dirawat seperti nyawa sendiri.</p>
+        </div>
+
+        <h3>Latihan di Kelas:</h3>
+        <p>Kamu akan:<br>
+        - Gunakan simulator TechSim 5000<br>
+        - Atur setpoint suhu boiler<br>
+        - Amati respons PID saat beban berubah<br>
+        - Simulasi sensor rusak → latihan ambil alih manual</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2026 RAVINDO MARITIME LEARNING SYSTEM | Universitas Hang Tuah (UHT)</p>
+      <p>⚓ Kontrol yang Stabil = Kapal yang Tenang! 🔥</p>
+    </footer>
+  </div>
+</body>
+</html>
+
